@@ -1,0 +1,12 @@
+[package]
+name = "plotterart"
+version = "0.1.0"
+authors = ["Erin Zoe Moon <erin@hecke.rs>"]
+edition = "2018"
+
+[dependencies]
+serialport = "3.3.0"
+hpgl = { path = './hpgl' }
+
+[workspace]
+members = ['hpgl/']
