@@ -46,10 +46,10 @@ impl PlotterWriteable for DeviceControlInstruction {
         use DeviceControlInstruction::*;
         match self {
             SetPlotterConfig(config) => {
-                write!(w, "\x03.@;{}:", config.bits)?;
+                write!(w, "\x1b.@;{}:", config.bits)?;
             }
             SetHandshakeMode(mode, config) => {
-                w.write(b"\x03.")?;
+                w.write(b"\x1b.")?;
                 match mode {
                     HandshakeMode::Mode1 => {
                         w.write(b"H")?;
@@ -97,7 +97,7 @@ impl PlotterWriteable for DeviceControlInstruction {
                 interchar_delay,
                 xoff_trigger_chars,
             } => {
-                write!(w, "\x03.N")?;
+                write!(w, "\x1b.N")?;
                 if let Some(interchar_delay) = interchar_delay {
                     write!(w, "{}", interchar_delay)?;
                 }
@@ -131,7 +131,7 @@ mod test {
         );
         instruction.write(&mut buf).unwrap();
 
-        assert_eq!(buf, b"\x03.@;13:");
+        assert_eq!(buf, b"\x1b.@;13:");
     }
 
     #[test]
@@ -140,7 +140,7 @@ mod test {
         let instruction = DeviceControlInstruction::SetPlotterConfig(Default::default());
         instruction.write(&mut buf).unwrap();
 
-        assert_eq!(buf, b"\x03.@;0:");
+        assert_eq!(buf, b"\x1b.@;0:");
     }
 
     #[test]
@@ -155,7 +155,7 @@ mod test {
         );
         instruction.write(&mut buf).unwrap();
 
-        assert_eq!(buf, b"\x03.I81;;17:");
+        assert_eq!(buf, b"\x1b.I81;;17:");
     }
 
     #[test]
@@ -171,7 +171,7 @@ mod test {
         );
         instruction.write(&mut buf).unwrap();
 
-        assert_eq!(buf, b"\x03.H132;19;20;7:");
+        assert_eq!(buf, b"\x1b.H132;19;20;7:");
     }
 
     #[test]
@@ -183,6 +183,6 @@ mod test {
         };
         instruction.write(&mut buf).unwrap();
 
-        assert_eq!(buf, b"\x03.N;19:");
+        assert_eq!(buf, b"\x1b.N;19:");
     }
 }
