@@ -74,6 +74,12 @@ impl From<Vec<Coordinate>> for CoordinateChain {
     }
 }
 
+impl From<Coordinate> for CoordinateChain {
+    fn from(inner: Coordinate) -> Self {
+        Self(vec![inner])
+    }
+}
+
 #[derive(Debug)]
 pub enum HpglCommand {
     DefaultSettings,
