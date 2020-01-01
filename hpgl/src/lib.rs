@@ -43,7 +43,8 @@ pub struct Coordinate {
     pub y: f32,
 }
 impl Coordinate {
-    pub const MAX_X: f32 = 10900.;
+    pub const MAX_X_A4: f32 = 10900.;
+    pub const MAX_X_US: f32 = 10300.;
     pub const MAX_Y: f32 = 7650.;
 }
 
