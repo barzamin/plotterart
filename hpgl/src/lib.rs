@@ -111,7 +111,7 @@ impl PlotterWriteable for HpglCommand {
                 sink.write(b"IN;")?;
             }
             SelectPen { pen } => {
-                sink.write(b"IN")?;
+                sink.write(b"SP")?;
                 write!(sink, "{}", pen)?;
                 sink.write(b";")?;
             }
