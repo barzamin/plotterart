@@ -7,6 +7,10 @@ edition = "2018"
 [dependencies]
 serialport = "3.3.0"
 hpgl = { path = './hpgl' }
+delaunator = "0.2.0"
+rand = "0.7.2"
+ndarray = "0.13.0"
+gnuplot = "0.0.32"
 
 [workspace]
 members = ['hpgl/']
