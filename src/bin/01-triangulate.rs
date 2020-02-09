@@ -16,7 +16,7 @@ fn gen_points(n: usize) -> Vec<Point> {
     (0..n)
         .map(|_| {
             let x = rng.gen_range(0. + margin, Coordinate::MAX_X_US as f64 - margin);
-            let y = rng.gen_range(0. + margin, Coordinate::MAX_Y    as f64 - margin);
+            let y = rng.gen_range(0. + margin, Coordinate::MAX_Y as f64 - margin);
             Point { x, y }
         })
         .collect()
