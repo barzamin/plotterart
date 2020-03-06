@@ -1,7 +1,10 @@
 [package]
 name = "hpgl"
+description = "library for driving HP-GL based plotters, laser cutters, vinyl cutters, etc"
+repository = "https://github.com/barzamin/plotterart/tree/master/lib/hpgl"
+license = "MIT"
 version = "0.1.0"
-authors = ["Erin Zoe Moon <erin@hecke.rs>"]
+authors = ["Erin Moon <erin@hecke.rs>"]
 edition = "2018"
 
 [dependencies]
